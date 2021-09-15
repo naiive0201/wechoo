@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   View,
   StyleSheet,
@@ -25,70 +26,63 @@ const Home = ({ navigation }) => {
   //const deviceWidth = Dimensions.get('window').width;
 
   return (
-    <ScrollView styles={styles.container}>
-      {/* <StatusBar styles={{ backgroundColor: 'black' }} /> */}
-      <Header nav={navigation} />
-      {/* <View style={styles.searchArea}>
-            <View style={styles.searchBox}>
-              <TextInput />
-            </View>
-            <View styles={styles.searchBtn}>
-              <Ionicons name="search" size={24} color="black" />
-            </View>
-          </View> */}
-      {MainListImages.map((image, index) => {
-        return (
-          <TouchableOpacity
-            key={index}
-            onPress={() => navigation.navigate('Detail', { data: image })}
-          >
-            <View style={styles.listContainer}>
-              {/* 이미지 영역 */}
-              <View style={styles.listItem}>
-                <Image
-                  source={image.image1}
-                  resizeMode={'cover'}
-                  style={{ height: 180, width: width / 2 }}
-                />
-                <Image
-                  source={image.image2}
-                  resizeMode={'cover'}
-                  style={{ height: 180, width: width / 2 }}
-                />
-              </View>
-              <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
-                {/* image area */}
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  {/* 
+    <SafeAreaView styles={styles.container}>
+      <ScrollView>
+        <Header nav={navigation} />
+        {MainListImages.map((image, index) => {
+          return (
+            <TouchableOpacity
+              key={index}
+              onPress={() => navigation.navigate('Detail', { data: image })}
+            >
+              <View style={styles.listContainer}>
+                {/* 이미지 영역 */}
+                <View style={styles.listItem}>
+                  <Image
+                    source={image.image1}
+                    resizeMode={'cover'}
+                    style={{ height: 180, width: width / 2 }}
+                  />
+                  <Image
+                    source={image.image2}
+                    resizeMode={'cover'}
+                    style={{ height: 180, width: width / 2 }}
+                  />
+                </View>
+                <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                  {/* image area */}
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    {/* 
                   TODO have to repace user's profile image
                   <Image src={require()} style={{height: 24, width: 24}}/> */}
-                  <View style={{ margin: 10 }}>
-                    <FontAwesome name="user-circle-o" size={32} color="black" />
+                    <View style={{ margin: 10 }}>
+                      <FontAwesome name="user-circle-o" size={32} color="black" />
+                    </View>
                   </View>
-                </View>
-                {/* text area */}
-                <View style={{ paddingTop: 7 }}>
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={{ fontSize: 15, flexShrink: 1 }}>{image.title}</Text>
-                  </View>
-                  <View style={{ flex: 1, flexDirection: 'row' }}>
-                    <Text style={{ fontSize: 11, color: 'gray' }}>
-                      {image.writer}&nbsp;&middot;&nbsp;
-                    </Text>
-                    <Text style={{ fontSize: 11, color: 'gray' }}>
-                      {image.hits}&nbsp;&middot;&nbsp;
-                    </Text>
-                    <Text style={{ fontSize: 11, color: 'gray' }}>{image.createdAt}</Text>
+                  {/* text area */}
+                  <View style={{ paddingTop: 7 }}>
+                    <View style={{ flexDirection: 'row' }}>
+                      <Text style={{ fontSize: 15, flexShrink: 1 }}>{image.title}</Text>
+                    </View>
+                    <View style={{ flex: 1, flexDirection: 'row' }}>
+                      <Text style={{ fontSize: 11, color: 'gray' }}>
+                        {image.writer}&nbsp;&middot;&nbsp;
+                      </Text>
+                      <Text style={{ fontSize: 11, color: 'gray' }}>
+                        {image.hits}&nbsp;&middot;&nbsp;
+                      </Text>
+                      <Text style={{ fontSize: 11, color: 'gray' }}>{image.createdAt}</Text>
+                    </View>
                   </View>
                 </View>
               </View>
-            </View>
-          </TouchableOpacity>
-        );
-      })}
+            </TouchableOpacity>
+          );
+        })}
+      </ScrollView>
       {/* <Text>Home</Text>
   <Button title="Go to Details... again" onPress={() => navigation.navigate('Detail')} /> */}
-    </ScrollView>
+    </SafeAreaView>
   );
 };
 

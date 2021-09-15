@@ -1,12 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/Home';
-//import AddDrawer from './DrawerNavigator';
 import AddScreen from '../components/Add';
 import CategoryScreen from '../screens/tab/Category';
 import BookmarkScreen from '../screens/tab/Bookmark';
 import FollowScreen from '../screens/tab/Follow';
-
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
