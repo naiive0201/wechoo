@@ -24,7 +24,6 @@ class Detail extends React.Component {
       <View style={{ flex: 1, marginTop: Constants.statusBarHeight }}>
         <Text>Detail</Text>
         {/* <Text>{this.state.image}</Text> */}
-
         <Image source={DetailData.image1} style={{ height: 180, width: this.state.width / 2 }} />
         <Image source={DetailData.image2} style={{ height: 180, width: this.state.width / 2 }} />
       </View>
